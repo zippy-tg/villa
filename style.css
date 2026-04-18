@@ -353,34 +353,50 @@ nav.scrolled {
 /* What's Included Section */
 .included-section {
   background: var(--color-bg);
+  overflow: hidden;
+}
+
+.included-pin-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.included-title-container {
+  margin-bottom: 48px;
 }
 
 .section-title {
   font-size: clamp(2.5rem, 4vw, 4rem);
-  margin-bottom: 64px;
 }
 
-.included-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+.included-strip-container {
+  width: 100%;
 }
 
-.included-card {
-  background: var(--color-highlight);
-  border: 1px solid var(--line-color);
-  border-radius: 16px;
-  padding: 48px 32px;
+.included-strip {
+  display: flex;
+  width: max-content;
+  padding: 0 5vw;
+  gap: 8vw;
+  will-change: transform;
+}
+
+.included-item {
+  width: 30vw;
+  min-width: 320px;
+  max-width: 450px;
   opacity: 0;
   transform: translateY(40px);
 }
 
-.card-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 24px;
+.item-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 32px;
 }
-.card-icon svg {
+.item-icon svg {
   width: 100%;
   height: 100%;
   stroke: var(--color-accent);
@@ -388,15 +404,17 @@ nav.scrolled {
   stroke-width: 1.5;
 }
 
-.card-title {
-  font-size: 1.75rem;
+.item-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
   margin-bottom: 16px;
+  line-height: 1.1;
 }
 
-.card-text {
+.item-text {
   color: var(--color-text);
-  opacity: 0.8;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  opacity: 0.85;
 }
 
 /* The Space Section */
@@ -640,9 +658,7 @@ footer {
 
 /* Match Responsive Instructions */
 @media (max-width: 1024px) {
-  .included-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Responsive breakpoint fallback */
 }
 
 @media (max-width: 768px) {
@@ -684,8 +700,32 @@ footer {
     display: block;
   }
 
-  .included-grid {
-    grid-template-columns: 1fr;
+  .included-pin-wrapper {
+    height: auto;
+    display: block;
+    padding-block: var(--spacing-section);
+  }
+  .included-title-container {
+    margin-bottom: 32px;
+  }
+  .included-strip-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 24px;
+  }
+  .included-strip-container::-webkit-scrollbar {
+    display: none;
+  }
+  .included-strip {
+    gap: 24px;
+    padding: 0 5vw;
+  }
+  .included-item {
+    width: 85vw;
+    scroll-snap-align: center;
+    opacity: 1 !important; /* CSS handles mobile naturally */
+    transform: none !important;
   }
   .space-grid, .contact-wrap {
     grid-template-columns: 1fr;

@@ -85,16 +85,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Cards Reveal Stagger
-  gsap.to('.included-card', {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.included-grid',
-      start: 'top 80%'
+  // Desktop Horizontal Scroll for Included Strip
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 769px)", () => {
+    gsap.to('.included-item', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.included-section',
+        start: 'top 60%'
+      }
+    });
+
+    const strip = document.querySelector('.included-strip');
+    if (strip) {
+      gsap.to(strip, {
+        x: () => -(strip.scrollWidth - window.innerWidth + window.innerWidth * 0.1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.included-pin-wrapper',
+          pin: true,
+          scrub: 1,
+          start: 'center center',
+          end: () => "+=" + strip.scrollWidth,
+          invalidateOnRefresh: true
+        }
+      });
     }
   });
 
