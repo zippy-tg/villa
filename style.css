@@ -700,32 +700,15 @@ footer {
     display: block;
   }
 
-  .included-pin-wrapper {
-    height: auto;
-    display: block;
-    padding-block: var(--spacing-section);
-  }
   .included-title-container {
     margin-bottom: 32px;
-  }
-  .included-strip-container {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding-bottom: 24px;
-  }
-  .included-strip-container::-webkit-scrollbar {
-    display: none;
   }
   .included-strip {
     gap: 24px;
     padding: 0 5vw;
   }
   .included-item {
-    width: 85vw;
-    scroll-snap-align: center;
-    opacity: 1 !important; /* CSS handles mobile naturally */
-    transform: none !important;
+    width: 80vw;
   }
   .space-grid, .contact-wrap {
     grid-template-columns: 1fr;

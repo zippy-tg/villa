@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Desktop Horizontal Scroll for Included Strip
+  // Universal Horizontal Scroll for Included Strip
   let mm = gsap.matchMedia();
-  mm.add("(min-width: 769px)", () => {
+  mm.add("all", () => {
     gsap.to('.included-item', {
       opacity: 1,
       y: 0,
