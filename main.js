@@ -6,7 +6,10 @@ import Lenis from 'lenis'
 gsap.registerPlugin(ScrollTrigger)
 
 // Initialize Lenis
-const lenis = new Lenis()
+const lenis = new Lenis({
+  syncTouch: true,
+  touchMultiplier: 1.5
+})
 lenis.on('scroll', ScrollTrigger.update)
 gsap.ticker.add((time) => lenis.raf(time * 1000))
 gsap.ticker.lagSmoothing(0)

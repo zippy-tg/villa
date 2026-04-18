@@ -233,6 +233,7 @@ nav.scrolled {
   mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
   z-index: 0;
+  will-change: transform, filter, opacity;
 }
 
 .hero-botanical-svg {
@@ -346,6 +347,7 @@ nav.scrolled {
   margin-bottom: 1.5rem;
   color: var(--color-text);
   opacity: 0.15;
+  will-change: opacity;
 }
 
 /* What's Included Section */
@@ -647,10 +649,15 @@ footer {
   .hero-content {
     width: 100%;
     text-align: center;
+    padding-top: 5vh;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
   .hero-subtitle {
     max-width: 100%;
     margin: 0 auto 32px;
+    font-size: 1.15rem;
   }
   .hero-ctas {
     justify-content: center;
@@ -665,8 +672,9 @@ footer {
   }
   .hero-bg-image {
     width: 100%;
-    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    opacity: 0.25 !important;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 90%);
   }
 
   .nav-links {
